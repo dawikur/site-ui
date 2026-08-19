@@ -1,0 +1,61 @@
+/* Shared foundations for dawikur.dev project pages. */
+
+:root {
+	--space-1: 8px;
+	--space-2: 12px;
+	--space-3: 16px;
+	--space-4: 24px;
+	--space-5: 32px;
+	--space-6: 48px;
+	--space-7: 72px;
+	--ui-focus-ring: #00bedc;
+	--ui-motion-duration: 260ms;
+	--ui-interaction-duration: 140ms;
+}
+
+/*
+ * The page owns its palette variables, while site-ui owns how those variables
+ * move. Projects may register colour custom properties with @property; the
+ * broad transition then interpolates them without repeating a property list
+ * in every project.
+ */
+:root[data-ui-motion-ready] {
+	transition: all var(--ui-motion-duration) ease;
+}
+
+body {
+	transition: background-color var(--ui-motion-duration) ease, color var(--ui-motion-duration) ease;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+.ui-visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+	white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
+}

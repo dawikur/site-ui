@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>site-ui component catalogue</title>
+	<script src="theme.js"></script>
+	<link rel="stylesheet" href="foundation.css">
+	<link rel="stylesheet" href="components.css">
+	<style>
+		:root {
+			--catalog-bg: #11151d;
+			--catalog-surface: #1a202b;
+			--catalog-ink: #edf4fb;
+			--catalog-copy: #afbdca;
+			--catalog-border: #394959;
+			--catalog-accent: #67d4e8;
+			--ui-focus-ring: var(--catalog-accent);
+			--ui-control-bg: var(--catalog-surface);
+			--ui-control-border: var(--catalog-border);
+			--ui-control-ink: var(--catalog-ink);
+			--ui-control-hover: color-mix(in srgb, var(--catalog-accent) 15%, var(--catalog-surface));
+			--ui-control-active: color-mix(in srgb, var(--catalog-accent) 25%, var(--catalog-surface));
+			--ui-control-active-border: color-mix(in srgb, var(--catalog-accent) 60%, var(--catalog-border));
+			--ui-tag-border: var(--catalog-border);
+			--ui-tag-ink: var(--catalog-copy);
+			--ui-tag-bg: color-mix(in srgb, var(--catalog-surface) 76%, transparent);
+			--ui-action-border: color-mix(in srgb, var(--catalog-accent) 55%, var(--catalog-border));
+			--ui-action-ink: var(--catalog-ink);
+			--ui-action-bg: color-mix(in srgb, var(--catalog-accent) 10%, var(--catalog-surface));
+			--ui-action-hover: color-mix(in srgb, var(--catalog-accent) 22%, var(--catalog-surface));
+			--ui-action-muted: var(--catalog-copy);
+			--ui-card-border: var(--catalog-border);
+			--ui-card-bg: var(--catalog-surface);
+			--ui-card-shadow: 0 18px 40px rgba(0, 0, 0, .24);
+			--ui-code-bg: #101720;
+			--ui-code-ink: #c9e8ee;
+			--ui-tooltip-ink: var(--catalog-ink);
+			--ui-swatch-hover: var(--catalog-accent);
+			--ui-swatch-sample-border: rgba(255, 255, 255, .28);
+			--ui-scroll-top-bg: var(--catalog-surface);
+			--ui-scroll-top-border: var(--catalog-border);
+			--ui-scroll-top-ink: var(--catalog-ink);
+			--ui-scroll-top-hover: var(--ui-control-hover);
+			color-scheme: dark;
+			font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+		}
+
+		:root[data-theme="light"] {
+			--catalog-bg: #f4f6f8;
+			--catalog-surface: #ffffff;
+			--catalog-ink: #192936;
+			--catalog-copy: #536776;
+			--catalog-border: #c7d3dc;
+			--catalog-accent: #007f98;
+			--ui-code-bg: #edf3f6;
+			--ui-code-ink: #174b58;
+			color-scheme: light;
+		}
+
+		body { margin: 0; background: var(--catalog-bg); color: var(--catalog-ink); }
+		a { color: inherit; }
+		.catalog { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: var(--space-5) 0 80vh; }
+		.catalog-header { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-6); }
+		.catalog-header h1, .catalog-section h2 { margin: 0; letter-spacing: -.035em; }
+		.catalog-header p, .catalog-section > p { max-width: 62ch; margin: var(--space-2) 0 0; color: var(--catalog-copy); line-height: 1.55; }
+		.catalog-section { border-top: 1px solid var(--catalog-border); padding: var(--space-5) 0; }
+		.catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); margin-top: var(--space-3); }
+		.catalog-stack { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+		.catalog-stack--start { align-items: start; }
+		.catalog-example { min-width: 0; }
+		.catalog-example > strong { display: block; margin-bottom: var(--space-2); color: var(--catalog-copy); font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; }
+		.catalog-card-copy { margin: 0; color: var(--catalog-copy); line-height: 1.5; }
+		.catalog-colour { background: linear-gradient(135deg, #e48264, #6bc8da); }
+		.catalog-palette { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); }
+		.catalog-palette .ui-palette-sample { background: var(--sample-colour); }
+		.catalog-status { min-height: 1.5em; margin: var(--space-2) 0 0; color: var(--catalog-copy); font-size: .85rem; }
+		.catalog-footer { color: var(--catalog-copy); font-size: .9rem; text-align: center; }
+		@media (max-width: 560px) { .catalog { width: min(100% - 20px, 1120px); } }
+	</style>
+</head>
+<body>
+	<main class="catalog">
+		<header class="catalog-header">
+			<div>
+				<h1>site-ui</h1>
+				<p>A dependency-free catalogue of shared UI primitives. Projects supply their own layout and <code>--ui-*</code> colours.</p>
+			</div>
+			<div class="ui-segmented ui-theme-control" role="group" aria-label="Page theme">
+				<button class="ui-segmented-option ui-theme-option" type="button" data-theme-mode="auto">Auto</button>
+				<button class="ui-segmented-option ui-theme-option" type="button" data-theme-mode="light">Light</button>
+				<button class="ui-segmented-option ui-theme-option" type="button" data-theme-mode="dark">Dark</button>
+			</div>
+		</header>
+
+		<section class="catalog-section" aria-labelledby="controls-title">
+			<h2 id="controls-title">Controls</h2>
+			<p>Segmented controls provide the shared container, options, focus state and selected state.</p>
+			<div class="catalog-grid">
+				<div class="catalog-example"><strong>Default</strong><div class="ui-segmented" role="group" aria-label="Example mode"><button class="ui-segmented-option" type="button" aria-pressed="true">First</button><button class="ui-segmented-option" type="button" aria-pressed="false">Second</button><button class="ui-segmented-option" type="button" aria-pressed="false">Third</button></div></div>
+				<div class="catalog-example"><strong>Two options</strong><div class="ui-segmented ui-segmented--two" role="group" aria-label="Example view"><button class="ui-segmented-option" type="button" aria-pressed="true">Grid</button><button class="ui-segmented-option" type="button" aria-pressed="false">List</button></div></div>
+				<div class="catalog-example"><strong>Vertical at wide</strong><div class="ui-segmented ui-segmented--vertical-at-wide" role="group" aria-label="Example arrangement"><button class="ui-segmented-option" type="button" aria-pressed="true">One</button><button class="ui-segmented-option" type="button" aria-pressed="false">Two</button><button class="ui-segmented-option" type="button" aria-pressed="false">Three</button></div></div>
+				<div class="catalog-example"><strong>Vertical</strong><div class="ui-segmented ui-segmented--vertical" role="group" aria-label="Example settings"><button class="ui-segmented-option" type="button" aria-pressed="true">Low</button><button class="ui-segmented-option" type="button" aria-pressed="false">High</button></div></div>
+				<div class="catalog-example"><strong>Contrast</strong><div class="ui-segmented ui-segmented--contrast" role="group" aria-label="Example contrast"><button class="ui-segmented-option" type="button" aria-pressed="false">Soft</button><button class="ui-segmented-option" type="button" aria-pressed="true">Normal</button><button class="ui-segmented-option" type="button" aria-pressed="false">Hard</button></div></div>
+			</div>
+		</section>
+
+		<section class="catalog-section" aria-labelledby="labels-title">
+			<h2 id="labels-title">Labels and actions</h2>
+			<div class="catalog-grid">
+				<div class="catalog-example"><strong>Tags and pills</strong><div class="catalog-stack"><span class="ui-tag">Shared primitive</span><span class="ui-tag ui-tag--fill-at-mobile">Fills on mobile</span><span class="ui-pill">Pill</span><span class="ui-pill ui-pill--color ui-pill--stacked-at-mobile"><span class="ui-color-dot catalog-colour" aria-hidden="true"></span>Colour pill</span></div></div>
+				<div class="catalog-example"><strong>Toggle</strong><span class="ui-toggle" aria-label="Status"><span>Dark</span><span>Light</span></span></div>
+				<div class="catalog-example"><strong>Actions</strong><div class="catalog-stack"><a class="ui-action" href="#cards-title">Action</a><a class="ui-action ui-action--landing" href="#palette-title">Landing action</a><span class="ui-action ui-action--pending" aria-disabled="true">Pending</span></div></div>
+			</div>
+		</section>
+
+		<section class="catalog-section" aria-labelledby="cards-title">
+			<h2 id="cards-title">Surfaces</h2>
+			<div class="catalog-grid">
+				<article class="ui-card catalog-example"><strong>Card</strong><p class="catalog-card-copy">A general-purpose padded surface.</p></article>
+				<article class="ui-card ui-card--landing catalog-example"><strong>Landing card</strong><p class="catalog-card-copy">A prominent, rounded landing surface.</p></article>
+				<article class="ui-card ui-card--compact catalog-example"><strong>Compact card</strong><p class="catalog-card-copy">A denser surface variant.</p></article>
+				<article class="ui-card ui-card--flush catalog-example"><p class="catalog-card-copy">Flush cards leave internal padding to their content.</p></article>
+				<pre class="ui-code catalog-example"><code>make test
+node --test</code></pre>
+				<aside class="ui-tooltip catalog-example" role="status">Tooltip text</aside>
+			</div>
+		</section>
+
+		<section class="catalog-section" aria-labelledby="palette-title">
+			<h2 id="palette-title">Colour selection</h2>
+			<p>Select a swatch or palette sample to copy its value.</p>
+			<div class="catalog-grid">
+				<button class="ui-swatch catalog-example" type="button" data-copy="#67d4e8"><span class="ui-swatch-color catalog-colour"></span><span class="ui-swatch-label">#67d4e8</span><span class="ui-swatch-name">Accent cyan</span></button>
+				<article class="ui-palette-card ui-palette-card--compact catalog-example"><button class="ui-palette-sample" type="button" style="--sample-colour: #e48264" data-copy="#e48264" aria-label="Copy coral"><span class="ui-copy-feedback" hidden>Copied</span></button><span class="ui-swatch-label">#e48264</span><span class="ui-swatch-name">Coral</span></article>
+				<article class="ui-palette-card catalog-example"><div class="catalog-palette"><button class="ui-palette-sample" type="button" style="--sample-colour: #6bc8da" data-copy="#6bc8da" aria-label="Copy cyan"></button><button class="ui-palette-sample" type="button" style="--sample-colour: #b6c875" data-copy="#b6c875" aria-label="Copy green"></button><button class="ui-palette-sample" type="button" style="--sample-colour: #bc8ce2" data-copy="#bc8ce2" aria-label="Copy violet"></button></div><span class="ui-swatch-label">Palette samples</span><span class="ui-swatch-name">Three selectable colours</span></article>
+			</div>
+			<p class="catalog-status" aria-live="polite"></p>
+		</section>
+
+		<footer class="catalog-footer">Scroll this page to see the shared Up control.</footer>
+	</main>
+	<button class="ui-scroll-top" type="button" hidden aria-label="Scroll to top">↑</button>
+	<script src="scroll-top.js"></script>
+	<script>
+		const status = document.querySelector(".catalog-status");
+		document.querySelectorAll("[data-copy]").forEach((element) => {
+			element.addEventListener("click", async () => {
+				const value = element.dataset.copy;
+				try { await navigator.clipboard.writeText(value); } catch { /* The visible feedback remains useful for local files. */ }
+				status.textContent = `${value} copied`;
+				const feedback = element.querySelector(".ui-copy-feedback");
+				if (feedback) {
+					feedback.hidden = false;
+					window.setTimeout(() => { feedback.hidden = true; }, 900);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

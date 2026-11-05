@@ -16,6 +16,13 @@
 			--catalog-border: #394959;
 			--catalog-accent: #67d4e8;
 			--ui-focus-ring: var(--catalog-accent);
+			--ui-footer-border: var(--catalog-border);
+			--ui-footer-ink: var(--catalog-ink);
+			--ui-footer-accent: var(--catalog-accent);
+			--ui-footer-muted: var(--catalog-copy);
+			--ui-footer-bg: var(--catalog-bg);
+			--ui-footer-copy: var(--catalog-copy);
+
 			--ui-control-bg: var(--catalog-surface);
 			--ui-control-border: var(--catalog-border);
 			--ui-control-ink: var(--catalog-ink);
@@ -118,7 +125,7 @@
 		<section class="catalog-section" aria-labelledby="labels-title">
 			<h2 id="labels-title">Labels and actions</h2>
 			<div class="catalog-grid">
-				<div class="catalog-example"><strong>Tags and pills</strong><div class="catalog-stack"><span class="ui-tag">Shared primitive</span><span class="ui-tag ui-tag--fill-at-mobile">Fills on mobile</span><span class="ui-pill">Pill</span><span class="ui-pill ui-pill--color ui-pill--stacked-at-mobile"><span class="ui-color-dot catalog-colour" aria-hidden="true"></span>Colour pill</span></div></div>
+				<div class="catalog-example"><strong>Text notes and pills</strong><div class="catalog-stack"><span class="ui-tag">Plain note with a bullet</span><span class="ui-tag ui-tag--fill-at-mobile">Fills on mobile</span><span class="ui-pill">Pill</span><span class="ui-pill ui-pill--color ui-pill--stacked-at-mobile"><span class="ui-color-dot catalog-colour" aria-hidden="true"></span>Colour pill</span></div></div>
 				<div class="catalog-example"><strong>Toggle</strong><span class="ui-toggle" aria-label="Status"><span>Dark</span><span>Light</span></span></div>
 				<div class="catalog-example"><strong>Actions</strong><div class="catalog-stack"><a class="ui-action" href="#cards-title">Action</a><a class="ui-action ui-action--landing" href="#palette-title">Landing action</a><span class="ui-action ui-action--pending" aria-disabled="true">Pending</span></div></div>
 				<div class="catalog-example"><strong>Back link</strong><a class="ui-back-link" href="#controls-title">← dawikur.dev</a></div>
@@ -129,7 +136,7 @@
 			<h2 id="cards-title">Surfaces</h2>
 			<div class="catalog-grid">
 				<article class="ui-card catalog-example"><strong>Card</strong><p class="catalog-card-copy">A general-purpose padded surface.</p></article>
-				<article class="ui-card ui-card--landing catalog-example"><strong>Landing card</strong><p class="catalog-card-copy">A prominent, rounded landing surface.</p></article>
+				<article class="ui-card ui-card--landing catalog-example" style="--ui-card-padding-bottom: var(--space-3)"><strong>Landing card</strong><p class="catalog-card-copy">A prominent, rounded landing surface. Use --ui-card-padding-bottom to adjust its bottom inset.</p></article>
 				<article class="ui-card ui-card--compact catalog-example"><strong>Compact card</strong><p class="catalog-card-copy">A denser surface variant.</p></article>
 				<article class="ui-card ui-card--flush catalog-example"><p class="catalog-card-copy">Flush cards leave internal padding to their content.</p></article>
 				<pre class="ui-code catalog-example"><code>make test
@@ -147,6 +154,49 @@ node --test</code></pre>
 				<article class="ui-palette-card catalog-example"><div class="catalog-palette"><button class="ui-palette-sample" type="button" style="--sample-colour: #6bc8da" data-copy="#6bc8da" aria-label="Copy cyan"></button><button class="ui-palette-sample" type="button" style="--sample-colour: #b6c875" data-copy="#b6c875" aria-label="Copy green"></button><button class="ui-palette-sample" type="button" style="--sample-colour: #bc8ce2" data-copy="#bc8ce2" aria-label="Copy violet"></button></div><span class="ui-swatch-label">Palette samples</span><span class="ui-swatch-name">Three selectable colours</span></article>
 			</div>
 			<p class="catalog-status" aria-live="polite"></p>
+		</section>
+
+		<section class="catalog-section" aria-labelledby="features-title">
+			<h2 id="features-title">Feature list</h2>
+			<p>Features run inline and wrap when space is limited.</p>
+			<ul class="ui-feature-list"><li>Configurable widgets</li><li>Always-on ready</li><li>Tool-agnostic templates</li></ul>
+		</section>
+
+		<section class="catalog-section" aria-labelledby="footer-title">
+			<h2 id="footer-title">Project footer</h2>
+			<footer class="ui-footer" aria-labelledby="support-title">
+				<nav class="ui-footer-nav" aria-label="Project links"><a href="#footer-title">Documentation</a><span><svg class="ui-footer-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+						<path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.915-3.13.68-3.791-1.508-3.791-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.699.077-.685.077-.685 1.13.08 1.725 1.16 1.725 1.16 1.005 1.722 2.637 1.225 3.278.937.102-.728.393-1.225.715-1.507-2.499-.284-5.126-1.25-5.126-5.562 0-1.229.44-2.232 1.16-3.02-.116-.284-.503-1.428.11-2.978 0 0 .945-.302 3.095 1.154a10.79 10.79 0 0 1 5.634 0c2.15-1.456 3.094-1.154 3.094-1.154.614 1.55.227 2.694.112 2.978.722.788 1.158 1.791 1.158 3.02 0 4.323-2.631 5.275-5.138 5.553.404.35.766 1.04.766 2.097 0 1.514-.014 2.736-.014 3.107 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" />
+					</svg>GitHub · soon</span></nav>
+<div class="ui-footer-message"><h2 id="support-title">Enjoying the project?</h2> <p>Free and open source.</p></div>
+<a class="ui-action ui-footer-support" href="https://ko-fi.com/dawikur">
+					<svg class="ui-footer-icon" width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+						<path d="M6 11h18v13a5 5 0 0 1-5 5h-8a5 5 0 0 1-5-5V11Z M24 12h2a4 4 0 0 1 0 8h-2 M10 3v3 M15 3v3 M20 3v3" />
+					</svg>
+					Support my work
+				</a>
+			</footer>
+		</section>
+
+		<section class="catalog-section" aria-labelledby="compact-footer-title">
+			<h2 id="compact-footer-title">Compact footer</h2>
+			<p>Compact footers use a plain support link with a coffee icon; project footers use the shared ui-action button.</p>
+		<footer class="ui-footer ui-footer--compact">
+			<div class="ui-footer-nav">
+				<a href="https://github.com/dawikur">
+					<svg class="ui-footer-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+						<path d="M12 .75a11.25 11.25 0 0 0-3.558 21.923c.563.104.77-.244.77-.542 0-.267-.01-.975-.015-1.915-3.13.68-3.791-1.508-3.791-1.508-.512-1.3-1.25-1.646-1.25-1.646-1.022-.699.077-.685.077-.685 1.13.08 1.725 1.16 1.725 1.16 1.005 1.722 2.637 1.225 3.278.937.102-.728.393-1.225.715-1.507-2.499-.284-5.126-1.25-5.126-5.562 0-1.229.44-2.232 1.16-3.02-.116-.284-.503-1.428.11-2.978 0 0 .945-.302 3.095 1.154a10.79 10.79 0 0 1 5.634 0c2.15-1.456 3.094-1.154 3.094-1.154.614 1.55.227 2.694.112 2.978.722.788 1.158 1.791 1.158 3.02 0 4.323-2.631 5.275-5.138 5.553.404.35.766 1.04.766 2.097 0 1.514-.014 2.736-.014 3.107 0 .3.203.65.774.54A11.25 11.25 0 0 0 12 .75Z" />
+					</svg>
+					GitHub
+				</a>
+				<a class="ui-footer-support" href="https://ko-fi.com/dawikur">
+					<svg class="ui-footer-icon" width="20" height="20" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+						<path d="M6 11h18v13a5 5 0 0 1-5 5h-8a5 5 0 0 1-5-5V11Z M24 12h2a4 4 0 0 1 0 8h-2 M10 3v3 M15 3v3 M20 3v3" />
+					</svg>
+					Support my work
+				</a>
+			</div>
+		</footer>
 		</section>
 
 		<footer class="catalog-footer">Scroll this page to see the shared Up control.</footer>

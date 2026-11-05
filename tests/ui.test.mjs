@@ -220,6 +220,7 @@ test("catalogue loads every shared asset and documents public component classes"
 		"ui-control-dock", "ui-control-dock--grid-at-mobile", "ui-visually-hidden", "ui-segmented", "ui-segmented--two", "ui-segmented--vertical", "ui-segmented--vertical-at-wide", "ui-segmented--contrast", "ui-segmented-option",
 		"ui-tag", "ui-tag--fill-at-mobile", "ui-pill", "ui-pill--color", "ui-pill--stacked-at-mobile", "ui-color-dot", "ui-toggle",
 		"ui-action", "ui-action--landing", "ui-action--pending", "ui-back-link", "ui-card", "ui-card--landing", "ui-card--compact", "ui-card--flush", "ui-code", "ui-tooltip",
+		"ui-feature-list", "ui-footer", "ui-footer--compact", "ui-footer-nav", "ui-footer-icon", "ui-footer-support", "ui-footer-message",
 		"ui-swatch", "ui-palette-card", "ui-palette-card--compact", "ui-palette-sample", "ui-swatch-color", "ui-swatch-label", "ui-swatch-name", "ui-copy-feedback", "ui-scroll-top",
 	]) assert.match(catalogue, new RegExp(`class="[^"]*\\b${component}\\b`));
 	assert.match(agents, /index\.html/);
